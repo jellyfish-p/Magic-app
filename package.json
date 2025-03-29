@@ -8,7 +8,9 @@
     "build": "vue-tsc && vite build && electron-builder",
     "preview": "vue-tsc && vite build && vite preview",
     "serve": "vue-cli-service serve --open src/main.ts",
-    "electron:generate-icons": "electron-icon-builder --input=public/icon.png --output=build --flatten"
+    "electron:generate-icons": "electron-icon-builder --input=public/icon.png --output=build --flatten",
+    "build:win": "electron-builder --win --x64 --ia32 --arm64",
+    "build:linux": "electron-builder --linux"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.3.1",
