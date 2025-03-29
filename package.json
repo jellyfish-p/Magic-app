@@ -1,0 +1,35 @@
+{
+  "name": "random",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build && electron-builder",
+    "preview": "vue-tsc && vite build && vite preview",
+    "serve": "vue-cli-service serve --open src/main.ts",
+    "electron:generate-icons": "electron-icon-builder --input=public/icon.png --output=build --flatten"
+  },
+  "dependencies": {
+    "@element-plus/icons-vue": "^2.3.1",
+    "@tailwindcss/vite": "^4.0.17",
+    "electron-icon-builder": "^2.0.1",
+    "element-plus": "^2.9.7",
+    "tailwindcss": "^4.0.17",
+    "unplugin-auto-import": "^19.1.2",
+    "unplugin-vue-components": "^28.4.1",
+    "vue": "^3.4.21",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "electron-builder": "^26.0.12",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.6",
+    "vue-tsc": "^2.0.26",
+    "electron": "^30.0.1",
+    "vite-plugin-electron": "^0.28.6",
+    "vite-plugin-electron-renderer": "^0.14.5"
+  },
+  "main": "dist-electron/main.js"
+}
