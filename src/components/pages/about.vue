@@ -14,6 +14,7 @@ onMounted(() => {
 })
 
 function checkUpdate() {
+    window.updater.CheckForUpdates()
     ElNotification({
         title: '错误',
         message: '还没写呢 (QwQ)',
@@ -22,7 +23,6 @@ function checkUpdate() {
         showClose: false
     })
 }
-
 </script>
 
 <template>

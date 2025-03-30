@@ -17,7 +17,7 @@ onMounted(() => {
     setInterval(() => {
         date.value = new Date().toLocaleDateString("en-US", DateTimeFormatConfig)
     }, 1000)
-    fetch('https://v1.hitokoto.cn?c=d&c=k')
+    fetch('https://v1.hitokoto.cn')
         .then(Response => Response.json())
         .then(data => {
             OneSentence.value = data.hitokoto
