@@ -10,12 +10,12 @@ window.ipcRenderer.on('getInfoCallback', (args) => {
 
 function valid(data: { name: { id: number, name: string }[] }) {
     if (typeof data !== 'object') return false
-    if (!Object.hasOwn(data, 'name')) return false
+    if (!('name' in data)) return false
     if (typeof data.name !== 'object') return false
     data.name.forEach(item => {
-        if (!Object.hasOwn(item, 'id')) return false
-        if (!Object.hasOwn(item, 'name')) return false
-        if(typeof item.id !== 'number') return false
+        if (!('id' in item)) return false
+        if (!('name' in item)) return false
+        if (typeof item.id !== 'number') return false
         if (typeof item.name !== 'string') return false
     })
     return true

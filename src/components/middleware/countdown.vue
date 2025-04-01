@@ -13,7 +13,8 @@ onMounted(() => {
 })
 
 function formatTime(time: number) {
-    let res: string = ""
+    let res: string = time > 0 ? "" : "-"
+    time = Math.abs(time)
     res += Math.floor(time / (60 * 60 * 1000)).toString().padStart(2, "0")
     res += ":"
     res += Math.floor(time / (60 * 1000) % 60).toString().padStart(2, "0")

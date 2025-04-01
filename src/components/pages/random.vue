@@ -7,20 +7,20 @@ import { random } from '../../utils/storage'
 const countuser = ref<number>(0)
 const countorigin = ref<number>(0)
 
-countuser.value = random.GetUserLength()
-countorigin.value = random.GetOriginUserLength()
+countuser.value = await random.GetUserLength()
+countorigin.value = await random.GetOriginUserLength()
 
 const user = ref<{ id: number, name: string }>({ id: 0, name: '' })
 
 async function randomUser() {
     user.value = (await random.getRandomUser()).at(0) as { id: number, name: string }
-    countuser.value = random.GetUserLength()
+    countuser.value = await random.GetUserLength()
 }
 
 async function reset(){
     random.ResetUser()
-    countuser.value = random.GetUserLength()
-    countorigin.value = random.GetOriginUserLength()
+    countuser.value = await random.GetUserLength()
+    countorigin.value = await random.GetOriginUserLength()
     user.value = { id: 0, name: '' }
 }
 

@@ -23,6 +23,11 @@ contextBridge.exposeInMainWorld('ipcRenderer', {
   // ...
 })
 
-contextBridge.exposeInMainWorld('updater',{
+contextBridge.exposeInMainWorld('updater', {
   CheckForUpdates: () => ipcRenderer.invoke('check-for-updates')
+})
+
+contextBridge.exposeInMainWorld('storage', {
+  getItem: (key: string) => ipcRenderer.invoke('get-local-storage', [key]) as Promise<void>,
+  setItem: (key: string, value: string) => ipcRenderer.invoke('set-local-storage', [key, value]) as Promise<string>
 })

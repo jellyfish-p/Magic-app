@@ -71,6 +71,8 @@ app.on('activate', () => {
 })
 
 app.whenReady().then(() => {
-  ipcMain.handle('check-for-updates',plugins.updater.checkForUpdates)
+  ipcMain.handle('check-for-updates', plugins.updater.checkForUpdates)
+  ipcMain.handle('get-local-storage', async (_event, args) => plugins.localStorage.getItem(args[0]))
+  ipcMain.handle('set-local-storage', async (_event, args) => plugins.localStorage.setItem(args[0], args[1]))
   createWindow()
 })

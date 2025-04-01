@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { h, ref, watch } from 'vue'
 import { random } from '../../utils/storage'
-import { ElDialog, ElButton, ElTable, ElTableColumn, ElMessageBox, ElInputNumber, ElInput,ElMessage } from 'element-plus'
+import { ElDialog, ElButton, ElTable, ElTableColumn, ElMessageBox, ElInputNumber, ElInput, ElMessage } from 'element-plus'
 import { Plus } from '@element-plus/icons-vue'
 
 // functions
@@ -34,7 +34,7 @@ function editUserInfo(index: number) {
         ])
     }).then(() => {
         data.value.find((item) => item.id === id.value) ? ElMessage.error('用户 ID 已存在') :
-        data.value.splice(index, 1, { id: id.value, name: name.value })
+            data.value.splice(index, 1, { id: id.value, name: name.value })
         data.value.sort((a, b) => a.id - b.id)
     })
 }
@@ -67,7 +67,7 @@ function addUserInfo() {
         ])
     }).then(() => {
         data.value.find((item) => item.id === id.value) ? ElMessage.error('用户 ID 已存在') :
-        data.value.push({ id: id.value, name: name.value })
+            data.value.push({ id: id.value, name: name.value })
         data.value.sort((a, b) => a.id - b.id)
     })
 }
@@ -77,14 +77,14 @@ const props = defineProps<{ editable: boolean }>()
 const dialogVisible = defineModel<boolean>()
 
 // Variables
-const data = ref(random.OriginUserInfo().name)
+const data = ref<{id:number,name:string}[]>([])
 const id = ref<number>(1)
 const name = ref<string>('')
 
 // Watchers
 watch(dialogVisible, async (val) => {
     if (val) {
-        data.value = random.OriginUserInfo().name
+        data.value = (await random.OriginUserInfo()).name
     }
 })
 </script>
@@ -103,8 +103,10 @@ watch(dialogVisible, async (val) => {
             <el-table-column prop="name" label="姓名" />
             <el-table-column lable="操作">
                 <template #default="scope">
-                    <el-button v-if="props.editable" type="primary" text @click="editUserInfo(scope.$index)">编辑</el-button>
-                    <el-button v-if="props.editable" type="danger" text @click="deleteUserInfo(scope.$index)">删除</el-button>
+                    <el-button v-if="props.editable" type="primary" text
+                        @click="editUserInfo(scope.$index)">编辑</el-button>
+                    <el-button v-if="props.editable" type="danger" text
+                        @click="deleteUserInfo(scope.$index)">删除</el-button>
                 </template>
             </el-table-column>
         </el-table>
