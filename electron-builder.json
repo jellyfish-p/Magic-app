@@ -11,13 +11,6 @@
     "dist",
     "dist-electron"
   ],
-  "mac": {
-    "icon": "build/icons/icon.ico",
-    "target": [
-      "dmg"
-    ],
-    "artifactName": "${productName}-Mac-${version}-Installer.${ext}"
-  },
   "win": {
     "icon": "build/icons/icon.ico",
     "target": [
@@ -41,7 +34,7 @@
     "createStartMenuShortcut": true
   },
   "linux": {
-    "icon": "build/icons/icon.ico",
+    "icon": "build/icons/icon.png",
     "target": [
       "AppImage"
     ],
