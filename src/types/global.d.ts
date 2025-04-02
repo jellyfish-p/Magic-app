@@ -1,5 +1,14 @@
+interface UpdateCheckResult {
+    readonly isUpdateAvailable: boolean;
+    readonly updateInfo: UpdateInfo;
+    readonly downloadPromise?: Promise<Array<string>> | null;
+    readonly cancellationToken?: CancellationToken;
+    /** @deprecated */
+    readonly versionInfo: UpdateInfo;
+}
+
 export interface updater {
-    CheckForUpdates(): void
+    CheckForUpdates(): Promise<UpdateCheckResult>
 }
 
 export interface Storage {

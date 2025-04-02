@@ -13,22 +13,40 @@ onMounted(() => {
     }, 1500)
 })
 
-function checkUpdate() {
-    window.updater.CheckForUpdates()
-    ElNotification({
-        title: '错误',
-        message: '还没写呢 (QwQ)',
-        type: 'error',
-        position: 'bottom-right',
-        showClose: false
-    })
+async function checkUpdate() {
+    CheckingUpdate.value = true
+    const data = await window.updater.CheckForUpdates()
+    if(data.isUpdateAvailable){
+        ElNotification({
+            title: "发现新版本",
+            message: "发现新版本，是否更新？",
+            type: "success",
+            duration: 0,
+            position: "bottom-right",
+            showClose: false,
+            customClass: "notification",
+        })
+    }
+    else{
+        ElNotification({
+            title: "已是最新版本",
+            message: "已是最新版本，无需更新",
+            type: "success",
+            duration: 0,
+            position: "bottom-right",
+            showClose: false,
+            customClass: "notification",
+        })
+    }
 }
+
+const CheckingUpdate = ref<boolean>(false)
 </script>
 
 <template>
     <card class="flex flex-nowrap flex-row">
         <p class="text-2xl">关于版本</p>
-        <el-button class="ml-auto" @click="checkUpdate">检查更新</el-button>
+        <el-button class="ml-auto" @click="checkUpdate" :loading="CheckingUpdate">检查更新</el-button>
     </card>
     <card>
         Copyright © 2025-present jellyfish-p All rights reserved.

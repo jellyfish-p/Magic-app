@@ -33,8 +33,7 @@ function editUserInfo(index: number) {
             })
         ])
     }).then(() => {
-        data.value.find((item) => item.id === id.value) ? ElMessage.error('用户 ID 已存在') :
-            data.value.splice(index, 1, { id: id.value, name: name.value })
+        data.value.splice(index, 1, { id: id.value, name: name.value })
         data.value.sort((a, b) => a.id - b.id)
     })
 }

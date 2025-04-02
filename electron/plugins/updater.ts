@@ -1,3 +1,5 @@
+import {autoUpdater} from 'electron-updater'
+
 export async function checkForUpdates() {
-    console.log("Checking for updates...")
+    return autoUpdater.checkForUpdatesAndNotify()
 }

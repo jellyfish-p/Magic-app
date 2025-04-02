@@ -1,7 +1,7 @@
 {
   "name": "cn.jellyfishp.random",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -19,6 +19,7 @@
     "ajv": "^8.17.1",
     "electron-icon-builder": "^2.0.1",
     "electron-store": "^10.0.1",
+    "electron-updater": "^6.6.2",
     "element-plus": "^2.9.7",
     "tailwindcss": "^4.0.17",
     "unplugin-auto-import": "^19.1.2",

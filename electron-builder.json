@@ -11,6 +11,14 @@
     "dist",
     "dist-electron"
   ],
+  "publish":[
+    {
+      "provider": "github",
+      "owner": "jellyfish-p",
+      "repo": "Magic-app",
+      "releaseType": "release"
+    }
+  ],
   "win": {
     "icon": "build/icons/icon.ico",
     "target": [
