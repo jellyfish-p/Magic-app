@@ -27,6 +27,11 @@ jobs:
           GH_TOKEN: ${{ secrets.CUSTOM_TOKEN }}
 
       - name: Cleanup Artifacts for Windows
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          bun rimrag "dist/!(*.appimage)"
+      
+      - name: Cleanup Artifacts for Windows
         if: matrix.os == 'windows-latest'
         run: |
           bun rimraf "dist/!(*.exe)"
