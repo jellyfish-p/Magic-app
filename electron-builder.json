@@ -12,6 +12,7 @@
     "dist-electron"
   ],
   "mac": {
+    "icon": "build/icons/icon.ico",
     "target": [
       "dmg"
     ],
@@ -40,7 +41,7 @@
     "createStartMenuShortcut": true
   },
   "linux": {
-    "icon": "build/icons/icon.png",
+    "icon": "build/icons/icon.ico",
     "target": [
       "AppImage"
     ],

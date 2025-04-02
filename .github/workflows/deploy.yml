@@ -26,21 +26,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.CUSTOM_TOKEN }}
 
-      - name: Cleanup Artifacts for Windows
-        if: matrix.os == 'ubuntu-latest'
-        run: |
-          bun rimrag "dist/!(*.appimage)"
-      
-      - name: Cleanup Artifacts for Windows
-        if: matrix.os == 'windows-latest'
-        run: |
-          bun rimraf "dist/!(*.exe)"
-        
-      - name: Cleanup Artifacts for MacOS
-        if: matrix.os == 'macos-latest'
-        run: |
-          bun rimraf "dist/!(*.dmg)"
-            
       - name: upload artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -48,13 +33,10 @@ jobs:
           path: dist
             
       - name: release
-        uses: softprops/action-gh-release@v0.1.14
+        uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: "release/**"
+          files: "release/**/*.[exe|appimage|dmg]"
         env:
           GITHUB_TOKEN: ${{ secrets.CUSTOM_TOKEN }}
-
-      - name: test
-        run: ls release
 
