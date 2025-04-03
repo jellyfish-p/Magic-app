@@ -27,7 +27,7 @@ export const RENDERER_DIST = path.join(process.env.APP_ROOT, 'dist')
 
 process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL ? path.join(process.env.APP_ROOT, 'public') : RENDERER_DIST
 
-let win: BrowserWindow | null
+let win: BrowserWindow
 
 function createWindow() {
   win = new BrowserWindow({
@@ -58,7 +58,6 @@ function createWindow() {
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
-    win = null
   }
 })
 
@@ -76,3 +75,7 @@ app.whenReady().then(() => {
   ipcMain.handle('set-local-storage', async (_event, args) => plugins.localStorage.setItem(args[0], args[1]))
   createWindow()
 })
+
+export {
+  win
+}

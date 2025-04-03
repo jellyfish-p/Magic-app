@@ -9,6 +9,8 @@ interface UpdateCheckResult {
 
 export interface updater {
     CheckForUpdates(): Promise<UpdateCheckResult>
+    DownloadUpdate(): Promise<Array<string>>
+    QuitAndInstall(): Promise<void>
 }
 
 export interface Storage {

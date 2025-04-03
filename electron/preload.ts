@@ -24,7 +24,9 @@ contextBridge.exposeInMainWorld('ipcRenderer', {
 })
 
 contextBridge.exposeInMainWorld('updater', {
-  CheckForUpdates: () => ipcRenderer.invoke('check-for-updates')
+  CheckForUpdates: () => ipcRenderer.invoke('check-for-updates'),
+  DownloadUpdate: () => ipcRenderer.invoke('confirm-downloadUpdate'),
+  QuitAndInstall: () => ipcRenderer.invoke('confirm-update'),
 })
 
 contextBridge.exposeInMainWorld('storage', {
