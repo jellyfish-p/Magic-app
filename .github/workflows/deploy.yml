@@ -27,9 +27,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.CUSTOM_TOKEN }}
 
-      - name: upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ matrix.os }}
-          path: dist
 
