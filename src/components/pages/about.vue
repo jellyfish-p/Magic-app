@@ -9,6 +9,10 @@ onMounted(() => {
     setTimeout(() => {
         context.value = "听说有小笨蛋在看这段话呢，让我看看是谁"
     }, 1500)
+    setInterval(() => {
+        if (sessionStorage.getItem("update") == "true")
+            updating.value = true
+    })
 })
 
 async function checkUpdate() {
@@ -59,7 +63,7 @@ window.ipcRenderer.on('UpdateMsg', (_event, data) => {
         case 4:
             ElMessageBox.alert("下载完成！即将重启以安装更新", "提示", {
                 confirmButtonText: "确定",
-                callback: ()=>{
+                callback: () => {
                     window.updater.QuitAndInstall()
                 }
             })
