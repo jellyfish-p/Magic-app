@@ -2,7 +2,8 @@ import { createRouter, createWebHashHistory, RouterOptions } from 'vue-router'
 
 import HOME from '../components/pages/home.vue'
 import ABOUT from '../components/pages/about.vue'
-import RANDOM from '../components/pages/random.vue'
+import RANDOM_FAKE from '../components/pages/random-fake.vue'
+import RANDOM_REAL from '../components/pages/random-real.vue'
 import SETTINGS from '../components/pages/settings.vue'
 
 const routes: RouterOptions = {
@@ -15,8 +16,11 @@ const routes: RouterOptions = {
             path: '/about',
             component: ABOUT
         }, {
-            path: '/random',
-            component: RANDOM
+            path: '/random/fake',
+            component: RANDOM_FAKE
+        },{
+            path: '/random/real',
+            component: RANDOM_REAL
         }, {
             path: '/settings',
             component: SETTINGS

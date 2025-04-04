@@ -1,8 +1,5 @@
 <script lang="ts" setup>
 import { ElMenu, ElMenuItem, ElSubMenu } from 'element-plus'
-import 'element-plus/theme-chalk/el-menu.css'
-import 'element-plus/theme-chalk/el-menu-item.css'
-import 'element-plus/theme-chalk/el-sub-menu.css'
 import { House, SwitchFilled, Cpu, Setting } from '@element-plus/icons-vue'
 
 </script>
@@ -22,8 +19,11 @@ import { House, SwitchFilled, Cpu, Setting } from '@element-plus/icons-vue'
                 </el-icon>
                 抽取
             </template>
-            <el-menu-item index="3-1" route="/random">
-                随机抽取
+            <el-menu-item index="3-1" route="/random/fake">
+                不重复随机抽取
+            </el-menu-item>
+            <el-menu-item index="3-2" route="/random/real">
+                可重复随机抽取
             </el-menu-item>
         </el-sub-menu>
         <el-menu-item index="4" route="/settings">

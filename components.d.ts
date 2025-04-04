@@ -15,6 +15,8 @@ declare module 'vue' {
     Header: typeof import('./src/components/header/header.vue')['default']
     Home: typeof import('./src/components/pages/home.vue')['default']
     Random: typeof import('./src/components/pages/random.vue')['default']
+    RandomFake: typeof import('./src/components/pages/random-fake.vue')['default']
+    RandomReal: typeof import('./src/components/pages/random-real.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     Settings: typeof import('./src/components/pages/settings.vue')['default']

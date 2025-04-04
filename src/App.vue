@@ -18,7 +18,7 @@ onMounted(() => {
 <template>
     <el-container class="min-h-screen bg-[url('./assets/backgrounds/bg1.avif')] bg-cover">
         <el-container class="height-auto">
-            <el-aside width="150px">
+            <el-aside width="180px">
                 <HEADER />
             </el-aside>
             <el-main>
