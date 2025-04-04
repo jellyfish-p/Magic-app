@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { card, UserInfoView } from '../middleware'
 import { ElMessage, ElButton } from 'element-plus'
+import { OriginUserInfo } from '../../utils/storage/random'
 
 
 window.ipcRenderer.on('getInfoCallback', (args) => {
@@ -29,7 +30,7 @@ async function ExportConfig() {
     let element = document.createElement('a')
     element.download = 'config.json'
     element.style.display = 'none'
-    let data = JSON.stringify((await import('../../utils/storage/random')).OriginUserInfo())
+    let data = JSON.stringify(OriginUserInfo())
     let blob = new Blob([data], { type: 'text/json' })
     element.href = URL.createObjectURL(blob)
     document.body.appendChild(element)
