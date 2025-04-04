@@ -14,7 +14,6 @@ declare module 'vue' {
     ElIcon: typeof import('element-plus/es')['ElIcon']
     Header: typeof import('./src/components/header/header.vue')['default']
     Home: typeof import('./src/components/pages/home.vue')['default']
-    Random: typeof import('./src/components/pages/random.vue')['default']
     RandomFake: typeof import('./src/components/pages/random-fake.vue')['default']
     RandomReal: typeof import('./src/components/pages/random-real.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
