@@ -13,7 +13,7 @@ const DateTimeFormatConfig: Intl.DateTimeFormatOptions = {
     second: 'numeric',
 }
 
-onMounted(() => {
+onMounted(async () => {
     setInterval(() => {
         date.value = new Date().toLocaleDateString("en-US", DateTimeFormatConfig)
     }, 1000)
@@ -23,11 +23,12 @@ onMounted(() => {
             OneSentence.value = data.hitokoto
             console.log(data)
         })
+    timeout.value = await GetTimeOut()
 })
 
-function GetTimeOut() {
-    let time = Number(localStorage.getItem('timeout')) || Date.now()
-    window.localStorage.setItem('timeout', time.toString())
+async function GetTimeOut() {
+    let time = Number(await window.storage.getItem('timeout')) || Date.now()
+    window.storage.setItem('timeout', time.toString())
     return time
 }
 
@@ -40,15 +41,16 @@ async function SetTimeOut() {
             modelValue: timeout.value,
             'onUpdate:modelValue': (value) => {
                 console.log(value)
-                timeout.value = value
-                window.storage.setItem('timeout', value.toString())
+                console.log(Date.parse(value))
+                timeout.value = Date.parse(value)
+                window.storage.setItem('timeout', timeout.value.toString())
             }
         })
     })
 }
 
 const date = ref<string>(new Date().toLocaleDateString("en-US", DateTimeFormatConfig))
-const timeout = ref<number>(GetTimeOut())
+const timeout = ref<number>(0)
 
 const OneSentence = ref<string>('Waiting network...')
 </script>

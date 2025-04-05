@@ -1,30 +1,36 @@
 <script setup lang="ts">
 import { onMounted } from 'vue'
 import { ElContainer, ElMain, ElAside } from 'element-plus'
-import 'element-plus/theme-chalk/el-container.css'
-import 'element-plus/theme-chalk/el-main.css'
-import 'element-plus/theme-chalk/el-footer.css'
-import 'element-plus/theme-chalk/el-aside.css'
+import defaultBG from './assets/backgrounds/bg1.avif'
 import HEADER from './components/header/header.vue'
 
-onMounted(() => {
+onMounted(async () => {
     addEventListener('click', () => {
 
     })
+    const element = document.getElementById('containerbg') as HTMLDivElement
+    const RandomBG = await window.storage.getItem('IsRandomBGon')
+    console.log(RandomBG)
+    if (RandomBG === "true") {
+        let url = await window.storage.getItem('RandomBGUrl')
+        if (url === "") url = "https://img.xjh.me/random_img.php?type=bg&ctype=acg&return=302"
+        element.style.backgroundImage = `url(${url})`
+    }
+    else {
+        element.style.backgroundImage = `url(${defaultBG})`
+    }
 })
 
 </script>
 
 <template>
-    <el-container class="min-h-screen bg-[url('./assets/backgrounds/bg1.avif')] bg-cover">
-        <el-container class="height-auto">
-            <el-aside width="180px">
-                <HEADER />
-            </el-aside>
-            <el-main>
-                <router-view />
-            </el-main>
-        </el-container>
+    <el-container id="containerbg" class="min-h-screen bg-cover">
+        <el-aside width="180px">
+            <HEADER />
+        </el-aside>
+        <el-main>
+            <router-view />
+        </el-main>
     </el-container>
 </template>
 
