@@ -1,29 +1,23 @@
 import { createRouter, createWebHashHistory, RouterOptions } from 'vue-router'
 
-import HOME from '../components/pages/home.vue'
-import ABOUT from '../components/pages/about.vue'
-import RANDOM_FAKE from '../components/pages/random-fake.vue'
-import RANDOM_REAL from '../components/pages/random-real.vue'
-import SETTINGS from '../components/pages/settings.vue'
-
 const routes: RouterOptions = {
     history: createWebHashHistory(),
     routes: [
         {
             path: '/',
-            component: HOME
+            component: ()=>import('../components/pages/home.vue')
         }, {
             path: '/about',
-            component: ABOUT
+            component: ()=>import('../components/pages/about.vue')
         }, {
             path: '/random/fake',
-            component: RANDOM_FAKE
+            component: ()=>import('../components/pages/random-fake.vue')
         },{
             path: '/random/real',
-            component: RANDOM_REAL
+            component: ()=>import('../components/pages/random-real.vue')
         }, {
             path: '/settings',
-            component: SETTINGS
+            component: ()=>import('../components/pages/settings.vue')
         }
     ]
 }
