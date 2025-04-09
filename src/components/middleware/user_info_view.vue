@@ -43,7 +43,16 @@ function deleteUserInfo(index: number) {
 }
 
 function addUserInfo() {
-    id.value = 1
+    let idt = 1
+    data.value.forEach(item => {
+        if (item.id == idt) {
+            idt++
+        }
+        else {
+            return
+        }
+    })
+    id.value = idt
     name.value = ''
     ElMessageBox({
         title: '添加用户',
@@ -76,7 +85,7 @@ const props = defineProps<{ editable: boolean }>()
 const dialogVisible = defineModel<boolean>()
 
 // Variables
-const data = ref<{id:number,name:string}[]>([])
+const data = ref<{ id: number, name: string }[]>([])
 const id = ref<number>(1)
 const name = ref<string>('')
 
