@@ -1,3 +1,4 @@
+import {ref} from 'vue'
 interface UpdateCheckResult {
     readonly isUpdateAvailable: boolean;
     readonly updateInfo: UpdateInfo;
@@ -7,6 +8,14 @@ interface UpdateCheckResult {
     readonly versionInfo: UpdateInfo;
 }
 
+export interface UserInfoData {
+    id:number;
+    real_name:string;
+    username:string;
+    choosed:boolean;
+    available:boolean;
+}
+
 export interface updater {
     CheckForUpdates(): Promise<UpdateCheckResult>
     DownloadUpdate(): Promise<Array<string>>
@@ -14,8 +23,8 @@ export interface updater {
 }
 
 export interface Storage {
-    setItem(key: string, value: string): Promise<void>
-    getItem(key: string): Promise<string>
+    setItem(key: string, value: any): Promise<void>
+    getItem(key: string): Promise<any>
 }
 
 declare global {

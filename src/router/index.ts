@@ -4,20 +4,17 @@ const routes: RouterOptions = {
     history: createWebHashHistory(),
     routes: [
         {
+            path: '/random',
+            component: () => import('../components/pages/random.vue')
+        }, {
             path: '/',
-            component: ()=>import('../components/pages/home.vue')
+            redirect: '/random'
         }, {
             path: '/about',
-            component: ()=>import('../components/pages/about.vue')
+            component: () => import('../components/pages/about.vue')
         }, {
-            path: '/random/fake',
-            component: ()=>import('../components/pages/random-fake.vue')
-        },{
-            path: '/random/real',
-            component: ()=>import('../components/pages/random-real.vue')
-        }, {
-            path: '/settings',
-            component: ()=>import('../components/pages/settings.vue')
+            path: '/config',
+            component: () => import('../components/pages/config.vue')
         }
     ]
 }

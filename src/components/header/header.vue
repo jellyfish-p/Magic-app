@@ -1,44 +1,28 @@
 <script lang="ts" setup>
-import { ElMenu, ElMenuItem, ElSubMenu } from 'element-plus'
-import { House, SwitchFilled, Cpu, Setting } from '@element-plus/icons-vue'
+import { ElMenu, ElMenuItem } from 'element-plus'
+import { SwitchFilled, Cpu, EditPen } from '@element-plus/icons-vue'
 
 </script>
 
 <template>
-    <el-menu default-active="1" class="min-h-full backdrop-blur-md" :router="true" background-color="#ffffff88">
-        <el-menu-item index="1" route="/">
+    <el-menu default-active="1" :router="true" background-color="#ffffff88" mode="horizontal">
+        <el-menu-item index="1" route="/random">
             <el-icon>
-                <house />
+                <SwitchFilled />
             </el-icon>
-            首页
+            随机
         </el-menu-item>
-        <el-sub-menu class="backdrop-blur-md" index="3" route="/random">
-            <template #title>
-                <el-icon>
-                    <switch-filled />
-                </el-icon>
-                抽取
-            </template>
-            <el-menu-item index="3-1" route="/random/fake">
-                不重复随机抽取
-            </el-menu-item>
-            <el-menu-item index="3-2" route="/random/real">
-                可重复随机抽取
-            </el-menu-item>
-        </el-sub-menu>
-        <el-menu-item index="4" route="/settings">
+        <el-menu-item index="2" route="/config">
             <el-icon>
-                <Setting />
+                <EditPen />
             </el-icon>
-            设置
+            配置
         </el-menu-item>
-        <el-menu-item index="5" route="/about">
+        <el-menu-item index="3" route="/about">
             <el-icon>
-                <cpu />
+                <Cpu />
             </el-icon>
             关于
         </el-menu-item>
     </el-menu>
 </template>
-
-<style scoped></style>
