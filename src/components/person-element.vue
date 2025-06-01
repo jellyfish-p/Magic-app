@@ -2,7 +2,8 @@
     <div ref="self" class="custom-shadow inline-flex items-center justify-begin rounded-full hover:shadow-lg">
         <div class="size-[40px] inline-flex items-center justify-center">
             <div ref="person" id="color-dot" class="size-[10px] rounded-full bg-gray-500"
-                :class="available ? choosed ? 'bg-gray-500' : 'bg-green-500' : 'bg-red-500'" />
+                :class="available ? choosed ? 'bg-gray-500' : 'bg-green-500' : 'bg-red-500'"
+                style="transition: background-color 0.3s ease-in-out;" />
         </div>
         <slot></slot>
     </div>
