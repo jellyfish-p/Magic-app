@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ElContainer, ElMain, ElAside,ElHeader } from 'element-plus'
 import HEADER from './components/header/header.vue'
 
 </script>

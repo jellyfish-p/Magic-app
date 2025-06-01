@@ -9,9 +9,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     About: typeof import('./src/components/pages/about.vue')['default']
-    Card: typeof import('./src/components/middleware/card.vue')['default']
     Config: typeof import('./src/components/pages/config.vue')['default']
-    Countdown: typeof import('./src/components/middleware/countdown.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
@@ -26,18 +24,17 @@ declare module 'vue' {
     ElInputNumber: typeof import('element-plus/es')['ElInputNumber']
     ElMain: typeof import('element-plus/es')['ElMain']
     ElOption: typeof import('element-plus/es')['ElOption']
+    ElProgress: typeof import('element-plus/es')['ElProgress']
     ElSelect: typeof import('element-plus/es')['ElSelect']
     ElTable: typeof import('element-plus/es')['ElTable']
     ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     Header: typeof import('./src/components/header/header.vue')['default']
-    Home: typeof import('./src/components/pages/home.vue')['default']
     PersonElement: typeof import('./src/components/person-element.vue')['default']
     Random: typeof import('./src/components/pages/random.vue')['default']
-    RandomFake: typeof import('./src/components/pages/random-fake.vue')['default']
-    RandomReal: typeof import('./src/components/pages/random-real.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Settings: typeof import('./src/components/pages/settings.vue')['default']
-    User_info_view: typeof import('./src/components/middleware/user_info_view.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

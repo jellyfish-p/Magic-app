@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import PE from '../person-element.vue'
-import { onMounted, ref, watch, onUnmounted, reactive } from 'vue';
+import { onMounted, ref, watch, onUnmounted } from 'vue';
 import { UserInfoData } from '../../types/global';
 
 const ConfigList = ref<string[]>()
