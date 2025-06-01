@@ -62,6 +62,7 @@ const progress = ref<number>(0)
 </script>
 <template>
     由 Jellyfish-p 开发
+    <br/>
     <el-button @click="update" v-loading="CheckingUpdate">检查更新</el-button>
-    <el-progress :percentage="progress" v-if="updating" :indeterminate="true"/>
+    <el-progress :percentage="progress" v-if="updating" :indeterminate="true" />
 </template>
